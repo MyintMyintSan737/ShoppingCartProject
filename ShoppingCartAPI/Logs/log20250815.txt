@@ -1,0 +1,276 @@
+2025-08-15 08:29:08.529 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 08:29:08.800 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-15 08:29:08.803 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-15 08:29:08.806 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 08:29:08.808 +06:30 [INF] Hosting environment: Development
+2025-08-15 08:29:08.809 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-15 08:29:09.754 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-15 08:29:10.558 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 807.4811ms
+2025-08-15 08:29:10.590 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-15 08:29:10.600 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 9.7840ms
+2025-08-15 08:29:10.730 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-15 08:29:10.933 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 202.8335ms
+2025-08-15 08:31:14.487 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47
+2025-08-15 08:31:14.499 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:31:14.548 +06:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShoppingCartAPI.Dtos.LoginRequest) on controller ShoppingCartAPI.Controllers.AuthController (ShoppingCartAPI).
+2025-08-15 08:31:14.826 +06:30 [INF] Login attempt for username: mms at "2025-08-15T02:01:14.8258435Z"
+2025-08-15 08:31:15.497 +06:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-15 08:31:16.475 +06:30 [INF] Executed DbCommand (88ms) [Parameters=[@__loginRequest_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__loginRequest_Username_0
+2025-08-15 08:31:17.204 +06:30 [INF] Login successful for user: mms (ID: 3) at "2025-08-15T02:01:17.2040220Z"
+2025-08-15 08:31:17.211 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:31:17.237 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI) in 2679.4179ms
+2025-08-15 08:31:17.240 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:31:17.250 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47 - 200 - application/json;+charset=utf-8 2763.1752ms
+2025-08-15 08:31:51.210 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/create - 0
+2025-08-15 08:31:51.307 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-15 08:31:51.317 +06:30 [INF] Route matched with {action = "CreateCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCart() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:33:56.903 +06:30 [INF] CreateCart called by user 3 at "2025-08-15T02:03:56.8947275Z"
+2025-08-15 08:34:02.084 +06:30 [INF] Executed DbCommand (14ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-15 08:34:43.040 +06:30 [INF] Cart reset successful for user 3. 0 items were removed.
+2025-08-15 08:34:48.995 +06:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-15 08:34:48.997 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI) in 177676.381ms
+2025-08-15 08:34:48.998 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-15 08:34:48.999 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/create - 0 - 200 - text/plain;+charset=utf-8 177789.3273ms
+2025-08-15 08:34:59.055 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - -
+2025-08-15 08:34:59.064 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:34:59.069 +06:30 [INF] Route matched with {action = "GetCartItems", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCartItems() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:34:59.075 +06:30 [INF] User 3 requested cart items at "2025-08-15T02:04:59.0754212Z"
+2025-08-15 08:34:59.177 +06:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId], [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [CartItems] AS [c]
+INNER JOIN [Products] AS [p] ON [c].[ProductId] = [p].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-08-15 08:34:59.188 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Collections.Generic.List`1[[ShoppingCartAPI.Dtos.CartItemDto, ShoppingCartAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:34:59.203 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI) in 131.6336ms
+2025-08-15 08:34:59.205 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:34:59.206 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - - - 200 - application/json;+charset=utf-8 151.1117ms
+2025-08-15 08:39:09.957 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 08:39:10.300 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-15 08:39:10.319 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-15 08:39:10.324 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 08:39:10.326 +06:30 [INF] Hosting environment: Development
+2025-08-15 08:39:10.327 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-15 08:39:10.630 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-15 08:39:10.931 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 305.2600ms
+2025-08-15 08:39:10.953 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-15 08:39:10.960 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 7.5868ms
+2025-08-15 08:39:11.003 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-15 08:39:11.095 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.0431ms
+2025-08-15 08:40:14.188 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38
+2025-08-15 08:40:14.209 +06:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-08-15 08:40:14.216 +06:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-08-15 08:40:14.218 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38 - 401 0 - 30.7310ms
+2025-08-15 08:40:42.651 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 08:40:43.023 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-15 08:40:43.025 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-15 08:40:43.029 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 08:40:43.033 +06:30 [INF] Hosting environment: Development
+2025-08-15 08:40:43.034 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-15 08:40:43.580 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-15 08:40:43.845 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 270.4943ms
+2025-08-15 08:40:43.860 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-15 08:40:43.867 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 6.7379ms
+2025-08-15 08:40:43.908 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-15 08:40:44.013 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.1514ms
+2025-08-15 08:41:00.803 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47
+2025-08-15 08:41:00.818 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:41:00.858 +06:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShoppingCartAPI.Dtos.LoginRequest) on controller ShoppingCartAPI.Controllers.AuthController (ShoppingCartAPI).
+2025-08-15 08:41:01.154 +06:30 [INF] Login attempt for username: mms at "2025-08-15T02:11:01.1540021Z"
+2025-08-15 08:41:01.820 +06:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-15 08:41:02.933 +06:30 [INF] Executed DbCommand (87ms) [Parameters=[@__loginRequest_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__loginRequest_Username_0
+2025-08-15 08:41:03.626 +06:30 [INF] Login successful for user: mms (ID: 3) at "2025-08-15T02:11:03.6260503Z"
+2025-08-15 08:41:03.638 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:41:03.667 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI) in 2800.7231ms
+2025-08-15 08:41:03.670 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:41:03.684 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47 - 200 - application/json;+charset=utf-8 2881.1704ms
+2025-08-15 08:43:16.132 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38
+2025-08-15 08:43:16.211 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 08:43:16.219 +06:30 [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(ShoppingCartAPI.Dtos.AddToCartDto) on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:43:25.793 +06:30 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-15 08:43:41.251 +06:30 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-08-15 08:45:05.759 +06:30 [WRN] AddToCart: Product with ID 1 not found.
+2025-08-15 08:45:07.556 +06:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-08-15 08:45:07.558 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI) in 111338.2522ms
+2025-08-15 08:45:07.560 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 08:45:07.561 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38 - 404 - text/plain;+charset=utf-8 111429.1412ms
+2025-08-15 08:45:29.508 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38
+2025-08-15 08:45:29.524 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 08:45:29.526 +06:30 [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(ShoppingCartAPI.Dtos.AddToCartDto) on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:46:00.793 +06:30 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-15 08:46:00.799 +06:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-08-15 08:46:00.813 +06:30 [INF] AddToCart: Added Product 4 (Quantity: 11) to User 3's cart.
+2025-08-15 08:46:00.929 +06:30 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([ProductId], [Quantity], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2025-08-15 08:46:00.948 +06:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-15 08:46:00.949 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI) in 31421.2738ms
+2025-08-15 08:46:00.954 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 08:46:00.954 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38 - 200 - text/plain;+charset=utf-8 31447.0640ms
+2025-08-15 08:48:06.526 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 08:48:06.792 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-15 08:48:06.793 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-15 08:48:06.796 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 08:48:06.796 +06:30 [INF] Hosting environment: Development
+2025-08-15 08:48:06.797 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-15 08:48:07.234 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-15 08:48:07.515 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 283.5626ms
+2025-08-15 08:48:07.533 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-15 08:48:07.539 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 6.0403ms
+2025-08-15 08:48:07.585 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-15 08:48:07.698 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.6550ms
+2025-08-15 08:48:52.506 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47
+2025-08-15 08:48:52.525 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:48:52.565 +06:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShoppingCartAPI.Dtos.LoginRequest) on controller ShoppingCartAPI.Controllers.AuthController (ShoppingCartAPI).
+2025-08-15 08:48:52.850 +06:30 [INF] Login attempt for username: mms at "2025-08-15T02:18:52.8507239Z"
+2025-08-15 08:48:53.650 +06:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-15 08:48:54.878 +06:30 [INF] Executed DbCommand (100ms) [Parameters=[@__loginRequest_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__loginRequest_Username_0
+2025-08-15 08:48:55.831 +06:30 [INF] Login successful for user: mms (ID: 3) at "2025-08-15T02:18:55.8309337Z"
+2025-08-15 08:48:55.847 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:48:55.887 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI) in 3310.3794ms
+2025-08-15 08:48:55.891 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 08:48:55.904 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47 - 200 - application/json;+charset=utf-8 3399.9607ms
+2025-08-15 08:49:11.176 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - -
+2025-08-15 08:49:11.187 +06:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-08-15 08:49:11.192 +06:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-08-15 08:49:11.194 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - - - 401 0 - 17.6939ms
+2025-08-15 08:49:32.163 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - -
+2025-08-15 08:49:32.237 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:49:32.244 +06:30 [INF] Route matched with {action = "GetCartItems", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCartItems() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:50:26.039 +06:30 [INF] User 3 requested cart items at "2025-08-15T02:20:25.9494919Z"
+2025-08-15 08:50:37.552 +06:30 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId], [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [CartItems] AS [c]
+INNER JOIN [Products] AS [p] ON [c].[ProductId] = [p].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-08-15 08:51:16.921 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Collections.Generic.List`1[[ShoppingCartAPI.Dtos.CartItemDto, ShoppingCartAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:51:16.992 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI) in 104745.9139ms
+2025-08-15 08:51:16.993 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:51:16.995 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - - - 200 - application/json;+charset=utf-8 104831.8684ms
+2025-08-15 08:51:26.686 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - -
+2025-08-15 08:51:26.689 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:51:26.690 +06:30 [INF] Route matched with {action = "GetCartItems", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCartItems() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:51:57.504 +06:30 [INF] User 3 requested cart items at "2025-08-15T02:21:57.5042891Z"
+2025-08-15 08:51:57.549 +06:30 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId], [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [CartItems] AS [c]
+INNER JOIN [Products] AS [p] ON [c].[ProductId] = [p].[Id]
+WHERE [c].[UserId] = @__userId_0
+2025-08-15 08:51:57.552 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.Collections.Generic.List`1[[ShoppingCartAPI.Dtos.CartItemDto, ShoppingCartAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 08:51:57.553 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI) in 30859.9724ms
+2025-08-15 08:51:57.558 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.GetCartItems (ShoppingCartAPI)'
+2025-08-15 08:51:57.558 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/api/Cart/getcartitems - - - 200 - application/json;+charset=utf-8 30872.2903ms
+2025-08-15 08:52:05.680 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/create - 0
+2025-08-15 08:52:05.682 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-15 08:52:05.688 +06:30 [INF] Route matched with {action = "CreateCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCart() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 08:52:15.184 +06:30 [INF] CreateCart called by user 3 at "2025-08-15T02:22:15.1778556Z"
+2025-08-15 08:52:18.811 +06:30 [INF] Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-15 08:52:46.649 +06:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-08-15 08:52:46.663 +06:30 [INF] Cart reset successful for user 3. 1 items were removed.
+2025-08-15 08:52:46.664 +06:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-15 08:52:46.664 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI) in 40972.9113ms
+2025-08-15 08:52:46.665 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-15 08:52:46.666 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/create - 0 - 200 - text/plain;+charset=utf-8 40986.2347ms
+2025-08-15 09:41:27.976 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-15 09:41:28.172 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-15 09:41:28.174 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-15 09:41:28.177 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-15 09:41:28.178 +06:30 [INF] Hosting environment: Development
+2025-08-15 09:41:28.179 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-15 09:41:28.699 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-15 09:41:28.948 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 249.7219ms
+2025-08-15 09:41:28.969 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-15 09:41:28.975 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 5.9285ms
+2025-08-15 09:41:29.021 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-15 09:41:29.122 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 101.0222ms
+2025-08-15 09:42:06.351 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47
+2025-08-15 09:42:06.379 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 09:42:06.459 +06:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShoppingCartAPI.Dtos.LoginRequest) on controller ShoppingCartAPI.Controllers.AuthController (ShoppingCartAPI).
+2025-08-15 09:42:06.962 +06:30 [INF] Login attempt for username: mms at "2025-08-15T03:12:06.9615053Z"
+2025-08-15 09:42:08.217 +06:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-15 09:42:09.838 +06:30 [INF] Executed DbCommand (128ms) [Parameters=[@__loginRequest_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__loginRequest_Username_0
+2025-08-15 09:42:11.143 +06:30 [INF] Login successful for user: mms (ID: 3) at "2025-08-15T03:12:11.1434051Z"
+2025-08-15 09:42:11.164 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-15 09:42:11.206 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI) in 4731.0429ms
+2025-08-15 09:42:11.214 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-15 09:42:11.231 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Auth/login application/json 47 - 200 - application/json;+charset=utf-8 4880.5204ms
+2025-08-15 09:43:15.268 +06:30 [INF] Request starting HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38
+2025-08-15 09:43:15.412 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 09:43:15.424 +06:30 [INF] Route matched with {action = "AddToCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddToCart(ShoppingCartAPI.Dtos.AddToCartDto) on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-15 09:43:30.994 +06:30 [INF] Executed DbCommand (15ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-15 09:43:35.150 +06:30 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2025-08-15 09:43:40.395 +06:30 [WRN] AddToCart: Requested quantity 95 exceeds stock 90 for Product 5.
+2025-08-15 09:43:43.241 +06:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-08-15 09:43:43.244 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI) in 27811.8648ms
+2025-08-15 09:43:43.245 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.AddToCart (ShoppingCartAPI)'
+2025-08-15 09:43:43.247 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/api/Cart/add application/json 38 - 400 - text/plain;+charset=utf-8 27979.5801ms

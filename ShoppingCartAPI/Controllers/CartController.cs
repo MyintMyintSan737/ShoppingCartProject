@@ -32,15 +32,9 @@ namespace ShoppingCartAPI.Controllers
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (userIdClaim == null)
                 {
-                    _logger.LogWarning("CreateCart called but token did not contain a user ID.");
-                    return Unauthorized("User ID not found in token.");
+                    return Unauthorized("Invalid token.");
                 }
-
-                if (!int.TryParse(userIdClaim, out int userId))
-                {
-                    _logger.LogWarning("CreateCart called with invalid user ID in token: {TokenValue}", userIdClaim);
-                    return Unauthorized("Invalid user ID format.");
-                }
+                int userId = int.Parse(userIdClaim);
 
                 _logger.LogInformation("CreateCart called by user {UserId} at {Time}", userId, DateTime.UtcNow);
 
@@ -80,9 +74,7 @@ namespace ShoppingCartAPI.Controllers
                 if (userIdClaim == null)
                     return Unauthorized("Invalid token.");
 
-                if (!int.TryParse(userIdClaim, out int userId))
-                    return Unauthorized("Invalid user ID in token.");
-
+                int userId = int.Parse(userIdClaim);
                 _logger.LogInformation("User {UserId} requested cart items at {Time}", userId, DateTime.UtcNow);
 
                 var cartItems = await _context.CartItems
@@ -121,8 +113,7 @@ namespace ShoppingCartAPI.Controllers
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (userIdClaim == null)
                 {
-                    _logger.LogWarning("AddToCart: Missing user ID in token.");
-                    return Unauthorized("User ID not found in token.");
+                    return Unauthorized("Invalil token.");
                 }
 
                 int userId = int.Parse(userIdClaim);
@@ -142,6 +133,12 @@ namespace ShoppingCartAPI.Controllers
                 {
                     _logger.LogWarning("AddToCart: Product with ID {ProductId} not found.", dto.ProductId);
                     return NotFound("Product not found.");
+                }
+
+                if (product.Stock < dto.Quantity)
+                {
+                    _logger.LogWarning("AddToCart: Requested quantity {Quantity} exceeds stock {Stock} for Product {ProductId}.", dto.Quantity, product.Stock, dto.ProductId);
+                    return BadRequest($"Only {product.Stock} item(s) left in stock.");
                 }
 
                 var cartItem = user.CartItems.FirstOrDefault(ci => ci.ProductId == dto.ProductId);
@@ -174,8 +171,6 @@ namespace ShoppingCartAPI.Controllers
         }
 
 
-
-
         //  4. Remove item from cart
         [Authorize]
         [HttpDelete("remove")]
@@ -186,8 +181,7 @@ namespace ShoppingCartAPI.Controllers
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (userIdClaim == null)
                 {
-                    _logger.LogWarning("RemoveFromCart: Unauthorized access attempt - no user ID in token.");
-                    return Unauthorized("User ID not found in token.");
+                    return Unauthorized("Invalid token.");
                 }
 
                 int userId = int.Parse(userIdClaim);
@@ -234,7 +228,6 @@ namespace ShoppingCartAPI.Controllers
                 var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 if (userIdClaim == null)
                 {
-                    _logger.LogWarning("Checkout: Unauthorized access attempt - user ID missing in token.");
                     return Unauthorized("Invalid token.");
                 }
 

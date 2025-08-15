@@ -278,3 +278,104 @@ VALUES (@p0, @p1);
 2025-08-14 21:43:43.204 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.UserController.CreateUser (ShoppingCartAPI) in 2476.4164ms
 2025-08-14 21:43:43.207 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.UserController.CreateUser (ShoppingCartAPI)'
 2025-08-14 21:43:43.216 +06:30 [INF] Request finished HTTP/2 POST https://localhost:7197/create application/json 47 - 200 - application/json;+charset=utf-8 2544.2099ms
+2025-08-14 22:37:56.781 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-14 22:37:57.191 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-14 22:37:57.193 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-14 22:37:57.195 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 22:37:57.196 +06:30 [INF] Hosting environment: Development
+2025-08-14 22:37:57.196 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-14 22:37:57.841 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-14 22:37:59.145 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 1306.8315ms
+2025-08-14 22:37:59.176 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-14 22:37:59.184 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 7.6637ms
+2025-08-14 22:37:59.185 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_vs/browserLink - -
+2025-08-14 22:37:59.242 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.7822ms
+2025-08-14 22:37:59.329 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-14 22:37:59.503 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 174.4892ms
+2025-08-14 22:51:24.920 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login multipart/form-data;+boundary=--------------------------268558719695943700693059 279
+2025-08-14 22:51:25.045 +06:30 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-08-14 22:51:25.064 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login multipart/form-data;+boundary=--------------------------268558719695943700693059 279 - 404 0 - 144.5278ms
+2025-08-14 22:52:13.528 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login/ multipart/form-data;+boundary=--------------------------683757559535903274863026 279
+2025-08-14 22:52:13.533 +06:30 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-08-14 22:52:13.534 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login/ multipart/form-data;+boundary=--------------------------683757559535903274863026 279 - 404 0 - 6.6889ms
+2025-08-14 22:52:32.214 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login/ - 0
+2025-08-14 22:52:32.216 +06:30 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-08-14 22:52:32.217 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login/ - 0 - 404 0 - 3.7720ms
+2025-08-14 22:52:52.981 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login/ multipart/form-data;+boundary=--------------------------609000070880731146625016 279
+2025-08-14 22:52:52.986 +06:30 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-08-14 22:52:52.988 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login/ multipart/form-data;+boundary=--------------------------609000070880731146625016 279 - 404 0 - 8.9146ms
+2025-08-14 22:58:13.511 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52
+2025-08-14 22:58:13.513 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52 - 404 0 - 4.2303ms
+2025-08-14 22:58:23.368 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52
+2025-08-14 22:58:23.370 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52 - 404 0 - 1.9446ms
+2025-08-14 22:58:48.228 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/Auth/login application/x-www-form-urlencoded 28
+2025-08-14 22:58:48.233 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/Auth/login application/x-www-form-urlencoded 28 - 404 0 - 5.0805ms
+2025-08-14 22:59:17.194 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/Auth/login multipart/form-data;+boundary=--------------------------080997640827091185828532 279
+2025-08-14 22:59:17.201 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/Auth/login multipart/form-data;+boundary=--------------------------080997640827091185828532 279 - 404 0 - 7.1734ms
+2025-08-14 23:01:09.191 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52
+2025-08-14 23:01:09.192 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/Auth/login application/json 52 - 404 0 - 1.1039ms
+2025-08-14 23:04:03.152 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52
+2025-08-14 23:04:03.154 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52 - 404 0 - 2.6507ms
+2025-08-14 23:04:14.532 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login text/plain 52
+2025-08-14 23:04:14.552 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login text/plain 52 - 404 0 - 20.1367ms
+2025-08-14 23:05:41.283 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52
+2025-08-14 23:05:41.290 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52 - 404 0 - 7.0059ms
+2025-08-14 23:07:05.620 +06:30 [INF] User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-08-14 23:07:05.819 +06:30 [INF] Now listening on: https://localhost:7197
+2025-08-14 23:07:05.820 +06:30 [INF] Now listening on: http://localhost:5207
+2025-08-14 23:07:05.823 +06:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-08-14 23:07:05.824 +06:30 [INF] Hosting environment: Development
+2025-08-14 23:07:05.824 +06:30 [INF] Content root path: D:\MyintBackendTesting\ShoppingCartProject\ShoppingCartAPI
+2025-08-14 23:07:06.442 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/index.html - -
+2025-08-14 23:07:06.792 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/index.html - - - 200 - text/html;charset=utf-8 352.2126ms
+2025-08-14 23:07:06.811 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_vs/browserLink - -
+2025-08-14 23:07:06.811 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - -
+2025-08-14 23:07:06.828 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 17.5396ms
+2025-08-14 23:07:06.858 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.0467ms
+2025-08-14 23:07:06.899 +06:30 [INF] Request starting HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - -
+2025-08-14 23:07:07.018 +06:30 [INF] Request finished HTTP/2 GET https://localhost:7197/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 119.1755ms
+2025-08-14 23:07:12.126 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52
+2025-08-14 23:07:12.136 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-14 23:07:12.168 +06:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShoppingCartAPI.Dtos.LoginRequest) on controller ShoppingCartAPI.Controllers.AuthController (ShoppingCartAPI).
+2025-08-14 23:07:13.030 +06:30 [INF] Login attempt for username: mms at "2025-08-14T16:37:13.0303424Z"
+2025-08-14 23:07:13.697 +06:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-08-14 23:07:15.534 +06:30 [INF] Executed DbCommand (189ms) [Parameters=[@__loginRequest_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__loginRequest_Username_0
+2025-08-14 23:07:16.176 +06:30 [INF] Login successful for user: mms (ID: 3) at "2025-08-14T16:37:16.1763258Z"
+2025-08-14 23:07:16.187 +06:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-08-14 23:07:16.214 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI) in 4039.0092ms
+2025-08-14 23:07:16.217 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.AuthController.Login (ShoppingCartAPI)'
+2025-08-14 23:07:16.229 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Auth/login application/json 52 - 200 - application/json;+charset=utf-8 4103.6060ms
+2025-08-14 23:08:38.850 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Cart/create - 0
+2025-08-14 23:08:38.866 +06:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-08-14 23:08:38.878 +06:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-08-14 23:08:38.881 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Cart/create - 0 - 401 0 - 30.7727ms
+2025-08-14 23:09:07.876 +06:30 [INF] Request starting HTTP/1.1 POST https://localhost:7197/api/Cart/create - 0
+2025-08-14 23:09:07.930 +06:30 [INF] Executing endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-14 23:09:07.936 +06:30 [INF] Route matched with {action = "CreateCart", controller = "Cart"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCart() on controller ShoppingCartAPI.Controllers.CartController (ShoppingCartAPI).
+2025-08-14 23:09:07.943 +06:30 [INF] CreateCart called by user 3 at "2025-08-14T16:39:07.9438192Z"
+2025-08-14 23:09:08.073 +06:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[PasswordHash], [t].[Username], [c].[Id], [c].[ProductId], [c].[Quantity], [c].[UserId]
+FROM (
+    SELECT TOP(1) [u].[Id], [u].[PasswordHash], [u].[Username]
+    FROM [Users] AS [u]
+    WHERE [u].[Id] = @__userId_0
+) AS [t]
+LEFT JOIN [CartItems] AS [c] ON [t].[Id] = [c].[UserId]
+ORDER BY [t].[Id]
+2025-08-14 23:09:08.228 +06:30 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-08-14 23:09:08.268 +06:30 [INF] Cart reset successful for user 3. 2 items were removed.
+2025-08-14 23:09:08.270 +06:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-08-14 23:09:08.275 +06:30 [INF] Executed action ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI) in 335.9727ms
+2025-08-14 23:09:08.276 +06:30 [INF] Executed endpoint 'ShoppingCartAPI.Controllers.CartController.CreateCart (ShoppingCartAPI)'
+2025-08-14 23:09:08.278 +06:30 [INF] Request finished HTTP/1.1 POST https://localhost:7197/api/Cart/create - 0 - 200 - text/plain;+charset=utf-8 402.1293ms

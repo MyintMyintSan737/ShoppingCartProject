@@ -24,7 +24,7 @@ namespace ShoppingCartAPI.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
             _logger.LogInformation("Login attempt for username: {Username} at {Time}", loginRequest.Username, DateTime.UtcNow);
