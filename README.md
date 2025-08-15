@@ -11,7 +11,7 @@ It supports user authentication with JWT, product management, cart management, a
 - Secure API using [Authorize] attribute
 
 *Requirements 
--.Net 7 
--SQL Server
--Postman or Swagger for API testing
--DB Script in DB folder of my Project
+- .Net 7
+- SQL Server
+- Postman or Swagger for testing API
+- DB Script in DB folder of my Project
