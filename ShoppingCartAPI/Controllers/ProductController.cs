@@ -2,6 +2,8 @@
 using ShoppingCartAPI.Data.Entities;
 using ShoppingCartAPI.Dtos;
 using ShoppingCartAPI.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ShoppingCartAPI.Controllers
 {
     [ApiController]
@@ -43,6 +45,48 @@ namespace ShoppingCartAPI.Controllers
                 message = "Product created successfully",
                 productId = product.Id
             });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var products = await _context.Products.ToListAsync();
+            return Ok(products);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] Product updatedProduct)
+        {
+            if (id != updatedProduct.Id)
+                return BadRequest("Product ID is not match.");
+
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+                return NotFound("Product not found.");
+
+            product.Name = updatedProduct.Name;
+            product.Description = updatedProduct.Description;
+            product.Price = updatedProduct.Price;
+            product.Stock = updatedProduct.Stock;
+
+            await _context.SaveChangesAsync();
+            _logger.LogInformation("Product updated: ID {Id}", id);
+
+            return Ok(product);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+                return NotFound("Product not found.");
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Product deleted: ID {Id}", id);
+            return Ok("Product deleted.");
         }
     }
 
